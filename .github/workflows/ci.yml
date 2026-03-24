@@ -1,0 +1,38 @@
+name: GiftDrop CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm run build
+
+      - name: Build Rust contracts
+        run: |
+          rustup target add wasm32-unknown-unknown
+          cd contracts/gift_drop
+          cargo build --target wasm32-unknown-unknown --release
+          cd ../gift_factory
+          cargo build --target wasm32-unknown-unknown --release
