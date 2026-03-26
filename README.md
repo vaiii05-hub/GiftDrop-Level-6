@@ -140,14 +140,18 @@ NEXT_PUBLIC_DEPLOYER_ADDRESS=your_deployer_address
 
 Feedback collected from 6 testnet users via Google Form.
 
-👉 [View Feedback Responses](https://docs.google.com/forms/d/1bAluxRpwHa0V83twN_V0JHLjGgYTgAtQEcsk4uCYMXU/edit#responses)
+👉 [View Feedback Responses]
+https://docs.google.com/forms/d/1yerOc39H90KWarGCQ03WuydqF_tZEwTojLS-qT__wtM/edit#responses
 
-## 🔄 Iterations Completed
+## 🔄 User Feedback Implementations
 
-- **Fixed expired drops disappearing** — Added null safety so expired drops show
-  with "Expired" status badge instead of vanishing from dashboard
-- **Added transaction confirmation** — Contributors now see Stellar Explorer link
-  after contributing so they can verify on-chain
+| # | User Feedback | Improvement Made 
+|---|--------------|-----------------
+| 1 | "My old drops were disappearing from the dashboard" | Fixed expired drops disappearing — added null safety so expired drops show with "Expired" status badge 
+| 2 | "I had no way to verify if my contribution actually went through on blockchain" | Added transaction confirmation — contributors now see Stellar Explorer link after contributing 
+| 3 | "I didn't know what would happen if the target amount wasn't reached" | Added clear auto-refund message on drop detail page explaining contributors get refunded if target not met
+| 4 | "I didn't know how much was raised compared to the target" | Added progress bar showing percentage raised on each drop card 
+| 5 | "I wanted to see my contributions separately from drops I created" | Added two separate tabs — My Drops and My Contributions on dashboard 
 
 ## 🔍 Verify on Stellar Explorer
 
