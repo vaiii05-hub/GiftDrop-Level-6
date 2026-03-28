@@ -1,4 +1,3 @@
- 
 "use client";
 import { useEffect, useState } from "react";
 
@@ -12,7 +11,7 @@ export default function MetricsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`${HORIZON}/accounts/${CONTRACT}/transactions?limit=50&order=desc`);
+        const res = await fetch(`${HORIZON}/transactions?limit=50&order=desc`);
         const data = await res.json();
         setTransactions(data._embedded?.records || []);
       } catch (e) {
