@@ -223,3 +223,33 @@ Based on feedback collected from 30+ testnet users, here are planned improvement
 ## 📄 License
 
 MIT License — feel free to use and build on this project.
+
+
+
+## 📊 Metrics Dashboard
+Live metrics available at: https://giftdrop-five.vercel.app/metrics
+- Total drops created
+- Total XLM contributed  
+- Total active users
+- All on-chain transactions
+
+## 🔒 Security Checklist
+[View Complete Security Checklist](./SECURITY.md)
+
+## 📡 Monitoring
+Error monitoring active via custom logger.
+All transactions logged with Stellar Explorer links.
+
+## 📈 Data Indexing
+Using Stellar Horizon API for transaction indexing.
+Endpoint: https://horizon-testnet.stellar.org/accounts/CCKWQPTEXUAV7RK3WKD2T6YS4CLC4QE2KWI2MO4NHVAN4ABFJHA3YGVJ/transactions
+
+## ⚡ Advanced Feature — Fee Sponsorship
+Implemented gasless transactions using Stellar fee bump.
+Contributors don't need XLM for gas fees.
+
+## 📖 User Guide
+[View Full User Guide](./USER_GUIDE.md)
+
+## 👥 30+ Testnet Users
+Coming soon — currently onboarding users!

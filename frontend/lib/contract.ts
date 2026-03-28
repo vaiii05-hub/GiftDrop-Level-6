@@ -183,3 +183,41 @@ export const getDropCount = async (): Promise<number> => {
 export const fromStroops = (amount: bigint | number): number => {
   return Number(amount) / 10_000_000;
 };
+
+
+
+export const contributeWithFeeSponsor = async (
+  contributor: string,
+  dropId: number,
+  amount: number,
+  sponsor: string
+): Promise<string> => {
+  const server = getServer();
+  const sponsorAccount = await server.getAccount(sponsor);
+  const contract = new StellarSdk.Contract(CONTRACT_ID);
+
+  const innerTx = new StellarSdk.TransactionBuilder(sponsorAccount, {
+    fee: "1000000",
+    networkPassphrase: NETWORK_PASSPHRASE,
+  })
+    .addOperation(
+      contract.call(
+        "contribute",
+        StellarSdk.nativeToScVal(BigInt(dropId), { type: "u64" }),
+        new StellarSdk.Address(contributor).toScVal(),
+        StellarSdk.nativeToScVal(BigInt(Math.floor(amount * 10_000_000)), { type: "i128" }),
+        new StellarSdk.Address(XLM_TOKEN).toScVal(),
+      )
+    )
+    .setTimeout(300)
+    .build();
+
+  const feeBump = StellarSdk.TransactionBuilder.buildFeeBumpTransaction(
+    sponsor,
+    "1000000",
+    innerTx,
+    NETWORK_PASSPHRASE
+  );
+
+  return feeBump.toXDR();
+};
