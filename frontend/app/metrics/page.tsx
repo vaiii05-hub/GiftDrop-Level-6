@@ -13,16 +13,18 @@ export default function MetricsPage() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-         `${HORIZON}/accounts/${DEPLOYER}/operations?limit=200&order=desc`
+          `${HORIZON}/accounts/${DEPLOYER}/operations?limit=200&order=desc`
         );
-        const data = await res.json();
-        const allOps = data._embedded?.records || [];
-        const contractOps = allOps.filter(
-          (op: any) =>
-            op.type === "invoke_host_function" &&
-            JSON.stringify(op).includes(CONTRACT)
-        );
-        setOperations(contractOps);
+       const data = await res.json();
+       const allOps = data._embedded?.records || [];
+      // Get ALL invoke_host_function ops after 27 Mar 2026
+       const contractOps = allOps.filter((op: any) => {
+          if (op.type !== "invoke_host_function") return false;
+          const opDate = new Date(op.created_at);
+          const cutoff = new Date("2026-03-22T00:00:00Z");
+          return opDate >= cutoff;
+       });
+      setOperations(contractOps);
       } catch (e) {
         console.error("Failed to fetch", e);
       } finally {
