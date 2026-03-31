@@ -192,7 +192,8 @@ GiftDrop uses a **custom logger** (`frontend/lib/logger.ts`) that logs all key a
 
 **Screenshot:**
 
-![GiftDrop Monitoring — Console Logger](<img width="1920" height="1080" alt="Screenshot 2026-03-28 201948" src="https://github.com/user-attachments/assets/89840691-02ac-4ad2-8426-ce4a81759412" />
+![GiftDrop Monitoring — Console Logger](<img width="1920" height="1080" alt="Screenshot 2026-03-28 201948" src="https://github.com/user-attachments/assets/7f008025-d477-4669-8be8-18ab3b86d8ab" />
+
 )
 
 > *Console showing `[GiftDrop INFO] GiftDrop app loaded` — custom logger fires on every app load, confirming monitoring is active.*
