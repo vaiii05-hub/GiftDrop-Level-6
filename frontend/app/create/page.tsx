@@ -47,8 +47,7 @@ export default function CreatePage() {
         dateToTimestamp(form.deadline),
         dateToTimestamp(form.revealDate),
         form.occasion,
-        form.message,
-        parseFloat(form.maxContribution) || 0
+        form.message
       );
       router.push("/drop/" + dropId);
     } catch (error) {
