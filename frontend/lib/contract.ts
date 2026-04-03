@@ -109,7 +109,8 @@ export const createGiftDropOnChain = async (
   deadline: number,
   revealDate: number,
   occasion: string,
-  message: string
+  message: string,
+  maxContribution: number
 ): Promise<number> => {
   const result = await invokeContract(organiser, "create_gift", [
     new StellarSdk.Address(organiser).toScVal(),
@@ -119,6 +120,7 @@ export const createGiftDropOnChain = async (
     StellarSdk.nativeToScVal(BigInt(revealDate), { type: "u64" }),
     StellarSdk.nativeToScVal(occasion, { type: "string" }),
     StellarSdk.nativeToScVal(message, { type: "string" }),
+    StellarSdk.nativeToScVal(BigInt(Math.floor(maxContribution * 10_000_000)), { type: "i128" }),
   ]);
   if (result.status === "SUCCESS" && result.returnValue) {
     return Number(StellarSdk.scValToNative(result.returnValue));

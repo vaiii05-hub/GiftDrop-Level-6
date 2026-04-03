@@ -18,6 +18,7 @@ pub struct GiftDrop {
     pub is_refunded: bool,
     pub occasion: String,
     pub message: String,
+    pub max_contribution: i128,
 }
 
 #[contracttype]
@@ -53,6 +54,7 @@ impl GiftDropContract {
         reveal_date: u64,
         occasion: String,
         message: String,
+        max_contribution: i128,
     ) -> u64 {
         organiser.require_auth();
 
@@ -75,6 +77,7 @@ impl GiftDropContract {
             is_refunded: false,
             occasion,
             message,
+            max_contribution,
         };
 
         env.storage().instance().set(&DataKey::Gift(next_id), &gift);
@@ -112,6 +115,23 @@ impl GiftDropContract {
         assert!(!gift.is_refunded, "Already refunded");
         assert!(env.ledger().timestamp() < gift.deadline, "Deadline passed");
         assert!(amount > 0, "Amount must be positive");
+
+        // Check max contribution limit per user
+        if gift.max_contribution > 0 {
+            let existing_contributions: Vec<Contribution> = env.storage().instance()
+                .get(&DataKey::Contributors(gift_id))
+                .unwrap_or(vec![&env]);
+            let mut user_total: i128 = 0;
+            for c in existing_contributions.iter() {
+                if c.contributor == contributor {
+                    user_total += c.amount;
+                }
+            }
+            assert!(
+                user_total + amount <= gift.max_contribution,
+                "Exceeds max contribution limit"
+            );
+        }
 
         // Transfer tokens
         let token_client = token::Client::new(&env, &token_address);
