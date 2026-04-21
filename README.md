@@ -252,6 +252,12 @@ Feedback was collected from **32 testnet users** via Google Form.
 ### Implemented Improvements
 
 
+| # | User Feedback | Improvement Made |
+|---|--------------|------------------|
+| 1 | "Hard to find the metrics page" | Added Metrics link directly to the navigation bar for easy access |
+| 2 | "Some users were contributing too much, leaving less room for others" | Implemented per-user max contribution limit enforced on-chain |
+
+
 ---
 
 ## 🔮 Future Roadmap
