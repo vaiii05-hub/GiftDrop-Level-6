@@ -251,15 +251,10 @@ Feedback was collected from **32 testnet users** via Google Form.
 
 ### Implemented Improvements
 
-| # | User Feedback | Improvement Made |
-|---|---------------|-----------------|
-| 1 | "My old drops were disappearing from the dashboard" | Fixed expired drops — added null safety so expired drops show with an "Expired" status badge |
-| 2 | "I had no way to verify if my contribution went through on blockchain" | Added transaction confirmation — contributors now see a Stellar Explorer link after contributing |
-| 3 | "I didn't know what would happen if the target amount wasn't reached" | Added clear auto-refund message on the drop detail page |
-| 4 | "I didn't know how much was raised compared to the target" | Added a progress bar showing percentage raised on each drop card |
-| 5 | "I wanted to see my contributions separately from drops I created" | Added two separate tabs — My Drops and My Contributions on the dashboard |
-| 6 | "Hard to find the metrics page" | Added Metrics link directly to the navigation bar for easy access |
-| 7 | "Some users were contributing too much, leaving less room for others" | Implemented per-user max contribution limit enforced on-chain |
+|| # | Feedback | Change Done | Commit ID |
+|---|----------|-------------|-----------|
+| 1 | Couldn't find metrics easily from the app | Added Metrics link directly to navbar | `cc46923` |
+| 2 | No limit on how much one person could contribute | Added per-user max contribution limit enforced on-chain | `2de757b` |
 
 ---
 
