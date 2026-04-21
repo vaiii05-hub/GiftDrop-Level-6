@@ -317,18 +317,10 @@ Based on feedback from 32 testnet users:
 
 ### Table 2 — User Feedback Implementation
 
-Users whose feedback was directly implemented, with the corresponding commit IDs:
-
-| # | User Name | User Email | User Wallet Address | Feedback Implemented | Commit ID |
-|---|-----------|------------|---------------------|---------------------|-----------|
-| 1 | Trisharan Gawai | trishyaspeaks@gmail.com | GBTOTIACAKIJACTH62RZQZSZJV6QIYFVPXLSAPNCSB6Q4IYMWEKIH55D | Expired drops showing with Expired badge | bf4c496 |
-| 2 | Gayatri Deshmukh | ggdeshmukh12107@gmail.com | GAHFDM4MHIGKWNZERUH4GC5IMZAFN4IH7PZFJ6RAIKLZ2H356ITDSTGL | Stellar Explorer link shown after contribution | b165448 |
-| 3 | Mukesh Dhole | dholemukesh2002@gmail.com | GDNLRW65EWJAP2AJQO5G6F2VSNHFZJJAC3VZ2GCAO452T5ICEJMFUFPL | Auto-refund message added on drop detail page | 2138270 |
-| 4 | Prashant Sawant | sawantprashant2000@gmail.com | GDZ2MUOTU45WYR4MA6IAR63OB6IU53QYGNYOAJPPJT6VBNQLSOQEZFE2 | Progress bar showing % raised on each drop card | 84dd9bd |
-| 5 | Siddhant Wasnik | Sidhantwasnik02@gmail.com | GD32Y4KNZI7PNFO6FKRWZO7VTCHOXMNVR3EZYLEKJ6QYN4QC3X3JUMN4 | Separate My Drops and My Contributions tabs | 59c0393 |
-| 6 | Sarang | sawant.sarang98@gmail.com | GCWGFZTDGBDQPTMU3KHRYWNDMW4PZEEHRL2INAX7UIKQB7UW7LMEH73V | Metrics link added directly to navbar | cc46923 |
-| 7 | Kumar Shankar Jadhav | kumarjadhav030@gmail.com | GARGMJJCMNGYHZPHPS47NANURZVT6EQIW2NDCE6PUFIC3YRCMDRBUDGD | Per-user max contribution limit enforced on-chain | 2de757b |
-
+| # | Feedback | Change Done | Commit ID |
+|---|----------|-------------|-----------|
+| 1 | Couldn't find metrics easily from the app | Added Metrics link directly to navbar | `cc46923` |
+| 2 | No limit on how much one person could contribute | Added per-user max contribution limit enforced on-chain | `2de757b` |
 ---
 
 ### All 32 Wallet Addresses
